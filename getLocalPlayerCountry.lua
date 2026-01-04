@@ -28,4 +28,6 @@ else
     print("Local player does not own a country.")
 end
 
-return getLocalPlayerCountry
+return {
+    getLocalPlayerCountry = getLocalPlayerCountry
+}

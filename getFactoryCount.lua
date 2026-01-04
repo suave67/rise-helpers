@@ -47,4 +47,6 @@ else
     print("No factories found in Iran.")
 end
 
-return getFactoryCount
+return {
+    getFactoryCount = getFactoryCount
+}

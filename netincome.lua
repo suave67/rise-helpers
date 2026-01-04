@@ -38,4 +38,6 @@ print("Income:", getIncome(indonesia))
 print("Expenses:", getExpenses(indonesia))
 print("Net Income:", getNetIncome(indonesia))
 
-return getNetIncome
+return {
+    getNetIncome = getNetIncome
+}

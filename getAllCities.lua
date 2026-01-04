@@ -42,4 +42,6 @@ else
     print("No cities found for this country.")
 end
 
-return getAllCities
+return {
+    getAllCities = getAllCities
+}

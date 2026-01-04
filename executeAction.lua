@@ -65,4 +65,6 @@ else
     print("Failed to execute build action.")
 end
 
-return executeAction
+return {
+    executeAction = executeAction
+}

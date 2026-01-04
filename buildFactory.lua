@@ -51,4 +51,6 @@ else
     print("Could not find Tehran city under Iran.")
 end
 
-return buildFactory
+return {
+    buildFactory = buildFactory
+}

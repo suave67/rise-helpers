@@ -40,4 +40,6 @@ else
     print("Could not determine deficit status for Indonesia.")
 end
 
-return isInDeficit
+return {
+    isInDeficit = isInDeficit
+}

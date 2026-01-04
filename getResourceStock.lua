@@ -34,4 +34,6 @@ else
     print("Could not find Electronics stock for Indonesia.")
 end
 
-return getResourceStock
+return {
+    getResourceStock = getResourceStock
+}

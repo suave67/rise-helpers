@@ -45,4 +45,6 @@ else
     print("Could not find Bahawalpur city.")
 end
 
-return getCityInfo
+return {
+    getCityInfo = getCityInfo
+}

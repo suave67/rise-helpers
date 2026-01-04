@@ -37,4 +37,6 @@ else
     print("Could not find Electronics flow for Indonesia.")
 end
 
-return getResourceFlow
+return {
+    getResourceFlow = getResourceFlow
+}

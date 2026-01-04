@@ -40,4 +40,6 @@ else
     print("Could not calculate projected money for Indonesia.")
 end
 
-return projectedMoney
+return {
+    projectedMoney = projectedMoney
+}

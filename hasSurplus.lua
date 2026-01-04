@@ -39,4 +39,6 @@ else
     print("Could not determine resource surplus for Indonesia.")
 end
 
-return hasSurplus
+return {
+    hasSurplus = hasSurplus
+}

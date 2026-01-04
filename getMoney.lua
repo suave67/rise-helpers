@@ -29,4 +29,6 @@ else
     print("Could not find Indonesia's economy balance.")
 end
 
-return getCountryMoney
+return {
+    getCountryMoney = getCountryMoney
+}

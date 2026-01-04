@@ -32,4 +32,6 @@ else
     print("Economy folder not found after timeout.")
 end
 
-return waitForChildWithTimeout
+return {
+    waitForChildWithTimeout = waitForChildWithTimeout
+}

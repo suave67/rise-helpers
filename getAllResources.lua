@@ -8,7 +8,9 @@ local Workspace = workspace
 ----------------------------
 -- Returns a table of all resources for a given country folder
 -- Each resource includes Stock and Flow
-local function getAllResources(countryFolder)
+local helpers = {}
+
+function helpers.getAllResources(countryFolder)
     if not countryFolder then return nil end
     local resourcesFolder = countryFolder:FindFirstChild("Resources")
     if not resourcesFolder then return nil end
@@ -31,6 +33,7 @@ end
 -- 3️⃣ Example Usage
 ----------------------------
 local indonesia = Workspace.CountryData:FindFirstChild("Indonesia")
+local allResources = helpers.getAllResources(indonesia)
 local allResources = getAllResources(indonesia)
 
 if allResources then
@@ -41,4 +44,6 @@ else
     print("Could not get resources for Indonesia.")
 end
 
-return getAllResources
+return {
+    getAllResources = getAllResources
+}

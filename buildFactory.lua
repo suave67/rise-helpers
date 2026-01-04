@@ -19,6 +19,7 @@ local Workspace = workspace
 -- Civilian Factory       -- produces consumer goods
 -- Aircraft Factory       -- produces aircraft parts
 -- Uranium Enricher       -- produces enriched uranium
+
 local function buildFactory(cityFolder, factoryType)
     if not cityFolder or not factoryType then return false end
 
@@ -29,7 +30,12 @@ local function buildFactory(cityFolder, factoryType)
     end
 
     -- Fire the remote to build the factory
-    createBuildingRemote:FireServer({cityFolder}, factoryType)
+    local ohTable1 = {cityFolder}
+    local ohString2 = factoryType
+    print("[DEBUG] Building factory with format:")
+    print("[DEBUG] ohTable1:", ohTable1)
+    print("[DEBUG] ohString2:", ohString2)
+    createBuildingRemote:FireServer(ohTable1, ohString2)
     return true
 end
 

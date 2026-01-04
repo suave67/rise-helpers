@@ -6,11 +6,21 @@ local Workspace = workspace
 ----------------------------
 -- 2️⃣ Function / Helper
 ----------------------------
--- Recursively scans a city folder and returns all info in a table
--- Input: cityFolder (Folder under workspace.Baseplate.Cities.[Country])
+-- Returns information about a specific city in the country
+-- Input: countryFolder (Folder from workspace.CountryData), cityName (string)
 -- Output: nested table with all properties
-local function getCityInfo(cityFolder)
+local function getCityInfo(countryFolder, cityName)
+    if not countryFolder or not cityName then return nil end
+
+    local countryName = countryFolder.Name
+    local countryCities = Workspace.Baseplate:FindFirstChild("Cities")
+    if not countryCities then return nil end
+
+    local cityFolder = countryCities:FindFirstChild(countryName)
     if not cityFolder then return nil end
+
+    local targetCity = cityFolder:FindFirstChild(cityName)
+    if not targetCity then return nil end
 
     local function scanFolder(folder)
         local info = {}
@@ -28,17 +38,16 @@ local function getCityInfo(cityFolder)
         return info
     end
 
-    return scanFolder(cityFolder)
+    return scanFolder(targetCity)
 end
 
 ----------------------------
 -- 3️⃣ Example Usage
 ----------------------------
-local pakistanCities = Workspace.Baseplate.Cities:FindFirstChild("Pakistan")
-local bahawalpur = pakistanCities and pakistanCities:FindFirstChild("Bahawalpur")
+local pakistanFolder = Workspace.CountryData:FindFirstChild("Pakistan")
+local cityInfo = getCityInfo(pakistanFolder, "Bahawalpur")
 
-if bahawalpur then
-    local cityInfo = getCityInfo(bahawalpur)
+if cityInfo then
     print("Bahawalpur city info:")
     print(game:GetService("HttpService"):JSONEncode(cityInfo))  -- Pretty JSON for inspection
 else
